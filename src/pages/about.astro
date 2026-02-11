@@ -1,0 +1,159 @@
+---
+import PageLayout from '@layouts/PageLayout.astro';
+import { BITCOIN_PARK_URL } from '@lib/constants';
+---
+
+<PageLayout
+  title="About AI Freedom Lab"
+  description="Learn about our mission, values, and the movement for intelligence freedom"
+>
+  <div class="prose prose-lg max-w-none">
+    <section class="mb-12">
+      <h2 class="text-3xl font-bold text-primary-indigo mb-6">Our Story</h2>
+      <p>
+        AI Freedom Lab emerged from a simple observation: as artificial intelligence becomes more powerful
+        and pervasive, the way we access and control these systems will fundamentally shape the future of
+        human autonomy and freedom.
+      </p>
+      <p>
+        Born in Nashville, Tennessee, at <a href={BITCOIN_PARK_URL} target="_blank" rel="noopener noreferrer">Bitcoin Park</a>,
+        our community brings together developers, researchers, entrepreneurs, and concerned citizens who
+        believe that intelligence tools should serve individuals, not centralized platforms.
+      </p>
+    </section>
+
+    <section class="mb-12">
+      <h2 class="text-3xl font-bold text-primary-indigo mb-6">Our Mission</h2>
+      <p>
+        We're building a future where everyone can access, control, and benefit from AI technology without
+        surrendering their privacy, data, or autonomy to centralized services.
+      </p>
+      <p class="font-semibold text-xl text-primary-cyan">
+        Intelligence freedom means the ability to think, create, and make decisions using AI tools that
+        you truly control.
+      </p>
+    </section>
+
+    <section class="mb-12">
+      <h2 class="text-3xl font-bold text-primary-indigo mb-6">What We Believe</h2>
+      <ul class="space-y-4">
+        <li>
+          <strong>Self-custody is fundamental:</strong> Just as Bitcoin enables financial sovereignty,
+          self-custodial AI enables intellectual sovereignty. You should be able to run models on your
+          own hardware, with your own data, under your own control.
+        </li>
+        <li>
+          <strong>Privacy is non-negotiable:</strong> Your thoughts, questions, and creative processes
+          shouldn't be training data for someone else's business model. Local AI keeps your data local.
+        </li>
+        <li>
+          <strong>Open-source empowers everyone:</strong> The most powerful AI systems should be freely
+          available, inspectable, and modifiable. Open-source AI levels the playing field and prevents
+          monopolistic control.
+        </li>
+        <li>
+          <strong>Community builds resilience:</strong> By sharing knowledge, tools, and best practices,
+          we make self-custodial AI accessible to everyone, not just technical experts.
+        </li>
+        <li>
+          <strong>Optimism drives innovation:</strong> We're builders, not cynics. The future of AI
+          can be bright, sovereign, and empowering—if we build it together.
+        </li>
+      </ul>
+    </section>
+
+    <section class="mb-12">
+      <h2 class="text-3xl font-bold text-primary-indigo mb-6">The Custodial Framework</h2>
+      <p>
+        We think about AI systems across a spectrum of control:
+      </p>
+      <div class="grid md:grid-cols-3 gap-6 my-8">
+        <div class="bg-white p-6 rounded-lg shadow-md border-2 border-primary-cyan">
+          <h3 class="text-xl font-bold text-primary-cyan mb-3">Self-Custodial</h3>
+          <p class="text-sm">
+            You run the model on your hardware. You control the weights, the data, and the inference.
+            Maximum sovereignty, maximum privacy.
+          </p>
+        </div>
+        <div class="bg-white p-6 rounded-lg shadow-md border-2 border-accent-gold">
+          <h3 class="text-xl font-bold text-accent-gold mb-3">Collaborative</h3>
+          <p class="text-sm">
+            Shared infrastructure with trusted peers. Local first, cloud when needed. Balance between
+            convenience and control.
+          </p>
+        </div>
+        <div class="bg-white p-6 rounded-lg shadow-md border-2 border-primary-indigo/30">
+          <h3 class="text-xl font-bold text-primary-indigo mb-3">Centralized</h3>
+          <p class="text-sm">
+            Convenient, powerful, but opaque. Your data, questions, and usage patterns belong to
+            someone else.
+          </p>
+        </div>
+      </div>
+      <p>
+        Our focus is on making self-custodial and collaborative AI accessible, practical, and empowering.
+      </p>
+    </section>
+
+    <section class="mb-12">
+      <h2 class="text-3xl font-bold text-primary-indigo mb-6">Our Relationship with Bitcoin Park</h2>
+      <p>
+        AI Freedom Lab is proudly incubated at <a href={BITCOIN_PARK_URL} target="_blank" rel="noopener noreferrer">Bitcoin Park</a>,
+        a community-driven hub for Bitcoin education, development, and culture in Nashville.
+      </p>
+      <p>
+        The principles that guide Bitcoin—decentralization, self-custody, open-source development, and
+        individual sovereignty—directly inspired our approach to AI. Just as Bitcoin separates money from
+        state, we're working to separate intelligence from centralized platforms.
+      </p>
+      <p>
+        Bitcoin Park provides us with space, community, and shared values. Many of our events, workshops,
+        and hackathons take place at the Park, and we're grateful for their support.
+      </p>
+    </section>
+
+    <section class="mb-12">
+      <h2 class="text-3xl font-bold text-primary-indigo mb-6">Get Involved</h2>
+      <p>
+        AI Freedom Lab is a community-driven movement. Here's how you can participate:
+      </p>
+      <ul class="space-y-3">
+        <li>
+          <strong>Attend experiences:</strong> Join our <a href="/events">hackathons, workshops, and meetups</a>
+          to learn, build, and connect with fellow builders.
+        </li>
+        <li>
+          <strong>Contribute to open-source:</strong> Help build the tools and infrastructure that make
+          self-custodial AI accessible to everyone.
+        </li>
+        <li>
+          <strong>Share knowledge:</strong> Write guides, create tutorials, or speak at our events to
+          help others on their journey to AI sovereignty.
+        </li>
+        <li>
+          <strong>Spread the word:</strong> Talk about intelligence freedom, share our resources, and
+          help grow the movement.
+        </li>
+      </ul>
+      <p class="mt-6">
+        <a href="/contact" class="text-primary-cyan hover:text-accent-magenta font-semibold">
+          Get in touch →
+        </a>
+      </p>
+    </section>
+
+    <section>
+      <h2 class="text-3xl font-bold text-primary-indigo mb-6">Our Values</h2>
+      <div class="bg-gradient-to-br from-primary-cyan/10 to-accent-magenta/10 p-8 rounded-lg">
+        <ul class="space-y-4 text-lg">
+          <li><strong>Freedom:</strong> Technology should expand human agency, not constrain it</li>
+          <li><strong>Privacy:</strong> Your data and thoughts are yours alone</li>
+          <li><strong>Sovereignty:</strong> Individuals and communities should control their own tools</li>
+          <li><strong>Transparency:</strong> Open-source, inspectable, and accountable systems</li>
+          <li><strong>Community:</strong> Collaboration over competition, shared knowledge over gatekeeping</li>
+          <li><strong>Optimism:</strong> We build the future we want to see</li>
+        </ul>
+      </div>
+    </section>
+  </div>
+</PageLayout>

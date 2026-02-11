@@ -1,0 +1,255 @@
+---
+import PageLayout from '@layouts/PageLayout.astro';
+import Card from '@components/ui/Card.astro';
+import Button from '@components/ui/Button.astro';
+
+// Curated resource categories
+const resourceCategories = [
+  {
+    title: 'Getting Started',
+    icon: '',
+    description: 'New to self-custodial AI? Start here.',
+    resources: [
+      {
+        title: 'What is Self-Custodial AI?',
+        description: 'Understand the fundamentals of running AI models locally',
+        href: '#what-is-self-custodial-ai',
+        external: false,
+      },
+      {
+        title: 'Your First Local Model',
+        description: 'Step-by-step guide to running your first AI model on your own hardware',
+        href: '#first-local-model',
+        external: false,
+      },
+      {
+        title: 'Hardware Requirements',
+        description: 'What you need to get started with local AI',
+        href: '#hardware-requirements',
+        external: false,
+      },
+    ],
+  },
+  {
+    title: 'Open-Source Tools',
+    icon: '',
+    description: 'Essential software for self-custodial AI',
+    resources: [
+      {
+        title: 'Ollama',
+        description: 'Get up and running with large language models locally',
+        href: 'https://ollama.ai',
+        external: true,
+      },
+      {
+        title: 'LocalAI',
+        description: 'OpenAI-compatible API for local models',
+        href: 'https://localai.io',
+        external: true,
+      },
+      {
+        title: 'PrivateGPT',
+        description: 'Ask questions to your documents without an internet connection',
+        href: 'https://github.com/imartinez/privateGPT',
+        external: true,
+      },
+      {
+        title: 'Text Generation WebUI',
+        description: 'Gradio web UI for running Large Language Models',
+        href: 'https://github.com/oobabooga/text-generation-webui',
+        external: true,
+      },
+    ],
+  },
+  {
+    title: 'Model Resources',
+    icon: '',
+    description: 'Find and download open-source AI models',
+    resources: [
+      {
+        title: 'Hugging Face',
+        description: 'The largest repository of open-source AI models',
+        href: 'https://huggingface.co/models',
+        external: true,
+      },
+      {
+        title: 'LLaMA Models',
+        description: 'Meta\'s powerful open-source language models',
+        href: 'https://github.com/facebookresearch/llama',
+        external: true,
+      },
+      {
+        title: 'Mistral AI',
+        description: 'High-performance open-source models from Mistral',
+        href: 'https://mistral.ai',
+        external: true,
+      },
+    ],
+  },
+  {
+    title: 'Advanced Topics',
+    icon: '',
+    description: 'Deep dives for experienced builders',
+    resources: [
+      {
+        title: 'Model Fine-tuning',
+        description: 'Customize models for your specific use case',
+        href: '#fine-tuning',
+        external: false,
+      },
+      {
+        title: 'Quantization Techniques',
+        description: 'Run larger models on smaller hardware',
+        href: '#quantization',
+        external: false,
+      },
+      {
+        title: 'Self-hosting Infrastructure',
+        description: 'Build your own AI infrastructure',
+        href: '#infrastructure',
+        external: false,
+      },
+    ],
+  },
+];
+---
+
+<PageLayout
+  title="Learn"
+  description="Resources, guides, and tools for building with self-custodial AI"
+>
+  <div class="prose prose-lg max-w-none">
+    <section class="mb-16">
+      <h2 class="text-3xl font-bold text-primary-indigo mb-6">Learning Resources</h2>
+      <p class="text-lg text-primary-indigo/80 mb-8">
+        Whether you're just getting started with self-custodial AI or you're an experienced builder,
+        these resources will help you on your journey to intelligence freedom.
+      </p>
+    </section>
+
+    {/* Resource categories */}
+    <div class="grid gap-8 md:grid-cols-2 mb-16">
+      {resourceCategories.map((category) => (
+        <Card class="p-6">
+          <div class="flex items-start gap-4 mb-4">
+            <span class="text-4xl">{category.icon}</span>
+            <div>
+              <h3 class="text-2xl font-bold text-primary-indigo mb-2">{category.title}</h3>
+              <p class="text-primary-indigo/70">{category.description}</p>
+            </div>
+          </div>
+          <ul class="space-y-3">
+            {category.resources.map((resource) => (
+              <li>
+                <a
+                  href={resource.href}
+                  target={resource.external ? '_blank' : undefined}
+                  rel={resource.external ? 'noopener noreferrer' : undefined}
+                  class="block p-3 rounded-lg hover:bg-primary-cyan/5 transition-colors group"
+                >
+                  <div class="font-semibold text-primary-indigo group-hover:text-primary-cyan transition-colors">
+                    {resource.title}
+                    {resource.external && (
+                      <svg class="inline h-4 w-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                      </svg>
+                    )}
+                  </div>
+                  <div class="text-sm text-primary-indigo/60 mt-1">
+                    {resource.description}
+                  </div>
+                </a>
+              </li>
+            ))}
+          </ul>
+        </Card>
+      ))}
+    </div>
+
+    {/* Getting Started Guide */}
+    <section id="what-is-self-custodial-ai" class="mb-12 bg-gradient-to-br from-primary-cyan/10 to-accent-magenta/10 p-8 rounded-lg">
+      <h2 class="text-3xl font-bold text-primary-indigo mb-6">What is Self-Custodial AI?</h2>
+      <p class="mb-4">
+        Self-custodial AI means running artificial intelligence models on your own hardware, with your own
+        data, under your complete control. Instead of sending your questions, documents, and creative work
+        to a centralized service, you keep everything local.
+      </p>
+      <h3 class="text-xl font-bold text-primary-indigo mt-6 mb-3">Why it matters:</h3>
+      <ul class="space-y-2">
+        <li><strong>Privacy:</strong> Your data never leaves your device</li>
+        <li><strong>Control:</strong> You choose which models to run and how to use them</li>
+        <li><strong>Sovereignty:</strong> No dependence on third-party services</li>
+        <li><strong>Censorship resistance:</strong> No one can restrict what you can ask or create</li>
+      </ul>
+    </section>
+
+    <section id="first-local-model" class="mb-12">
+      <h2 class="text-3xl font-bold text-primary-indigo mb-6">Your First Local Model</h2>
+      <p class="mb-4">
+        The easiest way to get started is with <a href="https://ollama.ai" target="_blank" rel="noopener noreferrer">Ollama</a>,
+        a tool that makes running large language models as simple as running a Docker container.
+      </p>
+      <h3 class="text-xl font-bold text-primary-indigo mt-6 mb-3">Quick Start:</h3>
+      <ol class="space-y-3">
+        <li><strong>Install Ollama:</strong> Download from ollama.ai and follow the installation instructions</li>
+        <li><strong>Download a model:</strong> Run <code>ollama pull llama2</code> to download Meta's LLaMA 2 model</li>
+        <li><strong>Start chatting:</strong> Run <code>ollama run llama2</code> and start asking questions</li>
+      </ol>
+      <p class="mt-6">
+        That's it! You're now running a powerful AI model entirely on your own hardware.
+      </p>
+    </section>
+
+    <section id="hardware-requirements" class="mb-12">
+      <h2 class="text-3xl font-bold text-primary-indigo mb-6">Hardware Requirements</h2>
+      <p class="mb-4">
+        The hardware you need depends on which models you want to run:
+      </p>
+      <div class="grid md:grid-cols-3 gap-6 my-8">
+        <div class="bg-white p-6 rounded-lg shadow-md">
+          <h4 class="text-lg font-bold text-primary-indigo mb-3">Entry Level</h4>
+          <ul class="text-sm space-y-2">
+            <li>• 8GB RAM minimum</li>
+            <li>• Modern CPU (4+ cores)</li>
+            <li>• 20GB storage</li>
+            <li>• Can run: 7B parameter models</li>
+          </ul>
+        </div>
+        <div class="bg-white p-6 rounded-lg shadow-md border-2 border-primary-cyan">
+          <h4 class="text-lg font-bold text-primary-cyan mb-3">Recommended</h4>
+          <ul class="text-sm space-y-2">
+            <li>• 16GB+ RAM</li>
+            <li>• GPU with 8GB+ VRAM</li>
+            <li>• 100GB storage</li>
+            <li>• Can run: 13B-30B models</li>
+          </ul>
+        </div>
+        <div class="bg-white p-6 rounded-lg shadow-md">
+          <h4 class="text-lg font-bold text-primary-indigo mb-3">Advanced</h4>
+          <ul class="text-sm space-y-2">
+            <li>• 32GB+ RAM</li>
+            <li>• High-end GPU (16GB+ VRAM)</li>
+            <li>• 500GB+ storage</li>
+            <li>• Can run: 70B+ models</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    {/* Community CTA */}
+    <section class="bg-gradient-to-br from-primary-indigo to-accent-magenta text-white p-8 rounded-lg text-center">
+      <h2 class="text-3xl font-bold mb-4">Have Questions?</h2>
+      <p class="text-lg text-white/90 mb-6">
+        Join our community events to learn from others and get hands-on help with self-custodial AI.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <Button href="/events" variant="primary" size="lg">
+          View Experiences
+        </Button>
+        <Button href="/contact" variant="outline" size="lg" class="!text-white !border-white hover:!bg-white hover:!text-primary-indigo">
+          Contact Us
+        </Button>
+      </div>
+    </section>
+  </div>
+</PageLayout>

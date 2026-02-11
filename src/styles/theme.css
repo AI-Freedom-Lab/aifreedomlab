@@ -1,0 +1,37 @@
+:root {
+  /* Brand Colors */
+  --color-primary-cyan: #00D9FF;
+  --color-primary-indigo: #1A2F5A;
+  --color-primary-cream: #F8F6F1;
+
+  --color-accent-gold: #FFB81C;
+  --color-accent-magenta: #E91E8C;
+  --color-accent-copper: #B87333;
+
+  /* Typography */
+  --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+  --font-mono: 'Space Mono', 'Menlo', 'Monaco', monospace;
+
+  /* Spacing */
+  --spacing-section: 6rem;
+  --spacing-section-sm: 3rem;
+
+  /* Animation */
+  --animation-duration-fast: 200ms;
+  --animation-duration-normal: 300ms;
+  --animation-duration-slow: 500ms;
+  --animation-easing: cubic-bezier(0.4, 0, 0.2, 1);
+
+  /* Shadows */
+  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+  --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1);
+  --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1);
+}
+
+@media (max-width: 768px) {
+  :root {
+    --spacing-section: 3rem;
+    --spacing-section-sm: 2rem;
+  }
+}

@@ -1,0 +1,158 @@
+---
+import BaseLayout from '@layouts/BaseLayout.astro';
+import Button from '@components/ui/Button.astro';
+import BlogCard from '@components/blog/BlogCard.astro';
+import EventCard from '@components/events/EventCard.astro';
+import NewsletterForm from '@components/ui/NewsletterForm';
+import HeroUnlock from '@components/home/HeroUnlock.astro';
+import { getCollection } from 'astro:content';
+import { sortByDate } from '@lib/utils';
+
+// Get featured blog posts (latest 3)
+const allBlogPosts = await getCollection('blog', ({ data }) => !data.draft);
+const featuredPosts = sortByDate(allBlogPosts).slice(0, 3);
+
+// Get upcoming events
+const allEvents = await getCollection('events', ({ data }) => data.status === 'upcoming');
+const upcomingEvents = sortByDate(allEvents).slice(0, 3);
+---
+
+<BaseLayout>
+  <!-- Hero Section with Unlock Animation Placeholder -->
+  <section class="relative bg-gradient-to-br from-primary-indigo via-primary-indigo to-accent-magenta text-white overflow-hidden">
+    <div class="absolute inset-0 opacity-10">
+      <div class="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,_rgba(0,217,255,0.3),transparent_50%)]"></div>
+    </div>
+
+    <div class="container mx-auto px-4 py-24 md:py-32 relative z-10">
+      <div class="max-w-4xl mx-auto text-center">
+        <!-- Hero Unlock Animation -->
+        <HeroUnlock />
+
+        <h1 class="text-5xl md:text-6xl lg:text-7xl font-bold mb-6 tracking-tight">
+          Building Intelligence Freedom
+        </h1>
+        <p class="text-xl md:text-2xl mb-8 text-white/90 max-w-3xl mx-auto">
+          A movement for self-custodial AI. Own your models, protect your data, preserve your autonomy.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <Button href="/events" variant="primary" size="lg">
+            Join an Experience
+          </Button>
+          <Button href="/learn" variant="outline" size="lg" class="!text-white !border-white hover:!bg-white hover:!text-primary-indigo">
+            Learn More
+          </Button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Mission Statement -->
+  <section class="py-16 md:py-24 bg-primary-cream">
+    <div class="container mx-auto px-4">
+      <div class="max-w-3xl mx-auto text-center">
+        <h2 class="text-3xl md:text-4xl font-bold text-primary-indigo mb-6">
+          Why Intelligence Freedom Matters
+        </h2>
+        <p class="text-lg text-primary-indigo/80 mb-6 leading-relaxed">
+          As AI becomes central to how we think, create, and make decisions, the question of who controls
+          these systems becomes critical. Centralized AI creates new dependencies, vulnerabilities, and
+          power imbalances.
+        </p>
+        <p class="text-lg text-primary-indigo/80 leading-relaxed">
+          We're building a future where individuals and communities can run AI models locally,
+          maintain data sovereignty, and preserve the freedom to think without surveillance or censorship.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Upcoming Events -->
+  {upcomingEvents.length > 0 && (
+    <section class="py-16 md:py-24">
+      <div class="container mx-auto px-4">
+        <div class="flex items-center justify-between mb-12">
+          <h2 class="text-3xl md:text-4xl font-bold text-primary-indigo">
+            Upcoming Experiences
+          </h2>
+          <Button href="/events" variant="outline" size="sm">
+            View All
+          </Button>
+        </div>
+        <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+          {upcomingEvents.map((event) => (
+            <EventCard
+              title={event.data.title}
+              eventDate={event.data.eventDate}
+              eventEndDate={event.data.eventEndDate}
+              location={event.data.location}
+              status={event.data.status}
+              tags={event.data.tags}
+              slug={event.slug}
+              featuredImage={event.data.featuredImage}
+            />
+          ))}
+        </div>
+      </div>
+    </section>
+  )}
+
+  <!-- Latest Blog Posts -->
+  {featuredPosts.length > 0 && (
+    <section class="py-16 md:py-24 bg-primary-cream">
+      <div class="container mx-auto px-4">
+        <div class="flex items-center justify-between mb-12">
+          <h2 class="text-3xl md:text-4xl font-bold text-primary-indigo">
+            Latest from the Blog
+          </h2>
+          <Button href="/blog" variant="outline" size="sm">
+            View All
+          </Button>
+        </div>
+        <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+          {featuredPosts.map((post) => (
+            <BlogCard
+              title={post.data.title}
+              description={post.data.description}
+              pubDate={post.data.pubDate}
+              author={post.data.author}
+              tags={post.data.tags}
+              slug={post.slug}
+              featuredImage={post.data.featuredImage}
+            />
+          ))}
+        </div>
+      </div>
+    </section>
+  )}
+
+  <!-- Newsletter CTA -->
+  <section class="py-16 md:py-24">
+    <div class="container mx-auto px-4">
+      <div class="max-w-2xl mx-auto">
+        <NewsletterForm client:load />
+      </div>
+    </div>
+  </section>
+
+  <!-- Community CTA -->
+  <section class="py-16 md:py-24 bg-gradient-to-br from-primary-indigo to-accent-magenta text-white">
+    <div class="container mx-auto px-4 text-center">
+      <h2 class="text-3xl md:text-4xl font-bold mb-6">
+        Join the Movement
+      </h2>
+      <p class="text-xl mb-8 text-white/90 max-w-2xl mx-auto">
+        Whether you're a developer, researcher, or simply curious about AI sovereignty,
+        there's a place for you in the AI Freedom Lab community.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <Button href="/events" variant="primary" size="lg">
+          Attend an Experience
+        </Button>
+        <Button href="/contact" variant="outline" size="lg" class="!text-white !border-white hover:!bg-white hover:!text-primary-indigo">
+          Get in Touch
+        </Button>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

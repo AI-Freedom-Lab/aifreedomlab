@@ -1,0 +1,84 @@
+---
+import { SOCIAL_LINKS, BITCOIN_PARK_URL } from '@lib/constants';
+
+const currentYear = new Date().getFullYear();
+---
+
+<footer class="bg-primary-indigo text-white mt-auto">
+  <div class="container mx-auto px-4 py-12">
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+      <!-- About Section -->
+      <div class="col-span-1 md:col-span-2">
+        <img
+          src="/assets/logos/ai-freedom-lab-2.png"
+          alt="AI Freedom Lab"
+          class="h-10 w-auto mb-4"
+        />
+        <p class="text-sm text-white/80 max-w-md">
+          Building the future of intelligence freedom through self-custodial AI.
+          A community-driven initiative in Nashville, Tennessee.
+        </p>
+      </div>
+
+      <!-- Quick Links -->
+      <div>
+        <h3 class="font-semibold mb-4">Quick Links</h3>
+        <ul class="space-y-2 text-sm">
+          <li><a href="/about" class="text-white/80 hover:text-primary-cyan transition-colors">About</a></li>
+          <li><a href="/events" class="text-white/80 hover:text-primary-cyan transition-colors">Experiences</a></li>
+          <li><a href="/blog" class="text-white/80 hover:text-primary-cyan transition-colors">Blog</a></li>
+          <li><a href="/contact" class="text-white/80 hover:text-primary-cyan transition-colors">Contact</a></li>
+        </ul>
+      </div>
+
+      <!-- Connect -->
+      <div>
+        <h3 class="font-semibold mb-4">Connect</h3>
+        <ul class="space-y-2 text-sm">
+          <li>
+            <a
+              href={SOCIAL_LINKS.twitter}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="text-white/80 hover:text-primary-cyan transition-colors"
+            >
+              Twitter
+            </a>
+          </li>
+          <li>
+            <a
+              href={SOCIAL_LINKS.github}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="text-white/80 hover:text-primary-cyan transition-colors"
+            >
+              GitHub
+            </a>
+          </li>
+          <li>
+            <a
+              href={`mailto:${SOCIAL_LINKS.email}`}
+              class="text-white/80 hover:text-primary-cyan transition-colors"
+            >
+              Email
+            </a>
+          </li>
+          <li>
+            <a
+              href={BITCOIN_PARK_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="text-white/80 hover:text-primary-cyan transition-colors"
+            >
+              Bitcoin Park
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="border-t border-white/10 mt-8 pt-8 text-center text-sm text-white/60">
+      <p>&copy; {currentYear} AI Freedom Lab. Building sovereignty-first technology.</p>
+    </div>
+  </div>
+</footer>

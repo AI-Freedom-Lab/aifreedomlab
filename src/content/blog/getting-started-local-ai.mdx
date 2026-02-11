@@ -1,0 +1,171 @@
+---
+title: "Getting Started with Self-Custodial AI"
+description: "A practical guide to running your first AI model locally in under 10 minutes"
+pubDate: 2025-01-25
+author: "AI Freedom Lab"
+tags: ["tutorial", "getting-started", "ollama"]
+draft: false
+---
+
+# Getting Started with Self-Custodial AI
+
+Running AI models on your own computer is easier than you might think. In this guide, we'll walk you through setting up your first local AI model in under 10 minutes.
+
+## What You'll Need
+
+- A computer with at least 8GB of RAM
+- Internet connection (for initial download)
+- 10 minutes of your time
+
+That's it! No GPU required (though it helps with performance).
+
+## Step 1: Install Ollama
+
+[Ollama](https://ollama.ai) is the easiest way to run large language models locally. It works on macOS, Linux, and Windows.
+
+### macOS
+```bash
+# Download and install from ollama.ai
+# Or use Homebrew:
+brew install ollama
+```
+
+### Linux
+```bash
+curl -fsSL https://ollama.ai/install.sh | sh
+```
+
+### Windows
+Download the installer from [ollama.ai](https://ollama.ai)
+
+## Step 2: Download Your First Model
+
+Once Ollama is installed, open your terminal and run:
+
+```bash
+ollama pull llama2
+```
+
+This downloads Meta's LLaMA 2 model (about 3.8GB). It's a powerful, open-source model that works great for general conversation and tasks.
+
+**Other models to try:**
+- `ollama pull mistral` - Fast, efficient model from Mistral AI
+- `ollama pull codellama` - Specialized for coding tasks
+- `ollama pull neural-chat` - Great for conversations
+
+## Step 3: Start Chatting
+
+Run the model:
+
+```bash
+ollama run llama2
+```
+
+You'll see a prompt where you can start asking questions. Try:
+
+- "Explain quantum computing in simple terms"
+- "Write a Python function to calculate fibonacci numbers"
+- "What are the key principles of self-custodial technology?"
+
+## Step 4: Customize Your Experience
+
+### Use the API
+
+Ollama provides a local API compatible with OpenAI's format:
+
+```bash
+curl http://localhost:11434/api/generate -d '{
+  "model": "llama2",
+  "prompt": "Why is the sky blue?"
+}'
+```
+
+### Web UI
+
+Install a web interface for easier interaction:
+
+```bash
+docker run -d -p 3000:8080 --add-host=host.docker.internal:host-gateway \
+  -v open-webui:/app/backend/data --name open-webui \
+  --restart always ghcr.io/open-webui/open-webui:main
+```
+
+Visit `http://localhost:3000` to access the UI.
+
+## Understanding What You Just Did
+
+You just:
+1. Installed a local AI runtime
+2. Downloaded an open-source model
+3. Started running AI entirely on your own hardware
+4. Kept all your data private and local
+
+No data was sent to any cloud service. No API keys needed. No monthly fees. **You own the entire stack.**
+
+## Next Steps
+
+### Try Different Models
+
+Ollama supports dozens of models. Browse them at [ollama.ai/library](https://ollama.ai/library)
+
+### Customize Models
+
+Create a `Modelfile` to customize behavior:
+
+```modelfile
+FROM llama2
+
+# Set temperature
+PARAMETER temperature 0.7
+
+# Set system message
+SYSTEM You are a helpful AI assistant focused on self-custodial technology.
+```
+
+Then build your custom model:
+
+```bash
+ollama create my-custom-model -f Modelfile
+ollama run my-custom-model
+```
+
+### Use it for Real Work
+
+- **Code assistance**: Use CodeLLaMA for programming help
+- **Document analysis**: Combine with PrivateGPT to query your documents
+- **Creative writing**: Use as a brainstorming partner
+- **Learning**: Ask questions without worrying about privacy
+
+## Common Questions
+
+### How much does this cost?
+
+The models are free. You're only paying for the electricity your computer uses (negligible for most users).
+
+### Is it as good as ChatGPT?
+
+Smaller local models (like 7B parameter models) are less capable than GPT-4, but they're private, free, and surprisingly capable for many tasks. Larger models (like 70B variants) can rival commercial services.
+
+### Do I need a GPU?
+
+No, but it helps. CPU inference works fine for most tasks, just a bit slower.
+
+### Can I use this offline?
+
+Yes! Once the model is downloaded, everything works without internet.
+
+## Join the Community
+
+Running into issues? Have questions? Want to share what you've built?
+
+- **Attend our events** at [aifreedomlab.org/events](/events)
+- **Join discussions** in our community channels
+- **Share your setup** and learn from others
+
+## Resources
+
+- [Ollama Documentation](https://github.com/ollama/ollama)
+- [Model Library](https://ollama.ai/library)
+- [Our Learn Page](/learn) for more advanced topics
+
+Welcome to self-custodial AI. You're now in control.

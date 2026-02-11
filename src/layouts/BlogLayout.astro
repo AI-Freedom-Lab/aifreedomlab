@@ -1,0 +1,80 @@
+---
+import BaseLayout from './BaseLayout.astro';
+import { formatDate } from '@lib/utils';
+
+export interface Props {
+  title: string;
+  description: string;
+  pubDate: Date;
+  updatedDate?: Date;
+  author: string;
+  tags: string[];
+  featuredImage?: string;
+}
+
+const { title, description, pubDate, updatedDate, author, tags, featuredImage } = Astro.props;
+---
+
+<BaseLayout title={title} description={description} image={featuredImage}>
+  <article class="container mx-auto px-4 py-16 max-w-4xl">
+    <header class="mb-12">
+      <div class="mb-6">
+        {tags.length > 0 && (
+          <div class="flex flex-wrap gap-2 mb-4">
+            {tags.map((tag) => (
+              <span class="inline-block bg-primary-cyan/10 text-primary-cyan px-3 py-1 rounded-full text-sm font-medium">
+                {tag}
+              </span>
+            ))}
+          </div>
+        )}
+      </div>
+
+      <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-primary-indigo mb-6">
+        {title}
+      </h1>
+
+      <div class="flex items-center gap-4 text-sm text-primary-indigo/70">
+        <span>By {author}</span>
+        <span>•</span>
+        <time datetime={pubDate.toISOString()}>
+          {formatDate(pubDate)}
+        </time>
+        {updatedDate && (
+          <>
+            <span>•</span>
+            <span>Updated {formatDate(updatedDate)}</span>
+          </>
+        )}
+      </div>
+    </header>
+
+    {featuredImage && (
+      <div class="mb-12 rounded-lg overflow-hidden">
+        <img
+          src={featuredImage}
+          alt={title}
+          class="w-full h-auto"
+        />
+      </div>
+    )}
+
+    <div class="prose prose-lg max-w-none">
+      <slot />
+    </div>
+
+    <footer class="mt-12 pt-8 border-t border-primary-indigo/10">
+      <div class="flex items-center justify-between">
+        <a
+          href="/blog"
+          class="text-sm font-medium text-primary-cyan hover:text-accent-magenta transition-colors"
+        >
+          ← Back to Blog
+        </a>
+        <div class="flex gap-4">
+          {/* Social share buttons could go here */}
+        </div>
+      </div>
+    </footer>
+  </article>
+</BaseLayout>

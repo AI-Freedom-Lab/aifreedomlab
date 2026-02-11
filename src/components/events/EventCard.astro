@@ -1,0 +1,74 @@
+---
+import Card from '@components/ui/Card.astro';
+import { formatDateRange } from '@lib/utils';
+
+export interface Props {
+  title: string;
+  eventDate: Date;
+  eventEndDate?: Date;
+  location: string;
+  status: 'upcoming' | 'past';
+  tags: string[];
+  slug: string;
+  featuredImage?: string;
+}
+
+const { title, eventDate, eventEndDate, location, status, tags, slug, featuredImage } = Astro.props;
+---
+
+<Card hover={true}>
+  <a href={`/events/${slug}`} class="block group">
+    {featuredImage && (
+      <div class="aspect-video overflow-hidden">
+        <img
+          src={featuredImage}
+          alt={title}
+          class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+        />
+      </div>
+    )}
+    <div class="p-6">
+      <div class="mb-3">
+        <span
+          class:list={[
+            'inline-block px-3 py-1 rounded-full text-xs font-medium',
+            status === 'upcoming'
+              ? 'bg-accent-gold/10 text-accent-gold'
+              : 'bg-primary-indigo/10 text-primary-indigo'
+          ]}
+        >
+          {status === 'upcoming' ? 'Upcoming' : 'Past Experience'}
+        </span>
+      </div>
+      <h3 class="text-xl font-bold text-primary-indigo mb-3 group-hover:text-primary-cyan transition-colors">
+        {title}
+      </h3>
+      <div class="space-y-2 text-sm text-primary-indigo/70 mb-4">
+        <div class="flex items-center gap-2">
+          <svg class="h-4 w-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+          </svg>
+          <time datetime={eventDate.toISOString()}>
+            {formatDateRange(eventDate, eventEndDate)}
+          </time>
+        </div>
+        <div class="flex items-center gap-2">
+          <svg class="h-4 w-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+          </svg>
+          <span>{location}</span>
+        </div>
+      </div>
+      {tags.length > 0 && (
+        <div class="flex flex-wrap gap-2">
+          {tags.slice(0, 3).map((tag) => (
+            <span class="inline-block bg-primary-cyan/10 text-primary-cyan px-2 py-1 rounded text-xs font-medium">
+              {tag}
+            </span>
+          ))}
+        </div>
+      )}
+    </div>
+  </a>
+</Card>

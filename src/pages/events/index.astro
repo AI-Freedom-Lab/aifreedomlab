@@ -1,0 +1,129 @@
+---
+import BaseLayout from '@layouts/BaseLayout.astro';
+import EventCard from '@components/events/EventCard.astro';
+import { getCollection } from 'astro:content';
+import { sortByDate } from '@lib/utils';
+
+// Get all events
+const allEvents = await getCollection('events');
+
+// Split into upcoming and past
+const upcomingEvents = sortByDate(
+  allEvents.filter(event => event.data.status === 'upcoming')
+);
+const pastEvents = sortByDate(
+  allEvents.filter(event => event.data.status === 'past')
+);
+
+// Get filter from URL
+const { searchParams } = Astro.url;
+const filterStatus = searchParams.get('status') || 'upcoming';
+---
+
+<BaseLayout
+  title="Experiences"
+  description="Join us for hackathons, workshops, and meetups focused on building intelligence freedom"
+>
+  <div class="container mx-auto px-4 py-16">
+    <header class="mb-12 text-center">
+      <h1 class="text-4xl md:text-5xl font-bold text-primary-indigo mb-4">
+        Experiences
+      </h1>
+      <p class="text-lg text-primary-indigo/70 max-w-2xl mx-auto">
+        Join us for hackathons, workshops, and meetups focused on building intelligence freedom
+      </p>
+    </header>
+
+    {/* Status filter */}
+    <div class="mb-12">
+      <div class="flex gap-4 justify-center">
+        <a
+          href="/events?status=upcoming"
+          class:list={[
+            'px-6 py-3 rounded-lg text-base font-medium transition-colors',
+            filterStatus === 'upcoming'
+              ? 'bg-primary-cyan text-white'
+              : 'bg-white text-primary-indigo border border-primary-indigo/20 hover:border-primary-cyan'
+          ]}
+        >
+          Upcoming Experiences ({upcomingEvents.length})
+        </a>
+        <a
+          href="/events?status=past"
+          class:list={[
+            'px-6 py-3 rounded-lg text-base font-medium transition-colors',
+            filterStatus === 'past'
+              ? 'bg-primary-cyan text-white'
+              : 'bg-white text-primary-indigo border border-primary-indigo/20 hover:border-primary-cyan'
+          ]}
+        >
+          Past Experiences ({pastEvents.length})
+        </a>
+      </div>
+    </div>
+
+    {/* Events grid */}
+    {filterStatus === 'upcoming' && (
+      <>
+        {upcomingEvents.length > 0 ? (
+          <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3 max-w-7xl mx-auto">
+            {upcomingEvents.map((event) => (
+              <EventCard
+                title={event.data.title}
+                eventDate={event.data.eventDate}
+                eventEndDate={event.data.eventEndDate}
+                location={event.data.location}
+                status={event.data.status}
+                tags={event.data.tags}
+                slug={event.slug}
+                featuredImage={event.data.featuredImage}
+              />
+            ))}
+          </div>
+        ) : (
+          <div class="text-center py-12 max-w-2xl mx-auto">
+            <p class="text-lg text-primary-indigo/70 mb-4">
+              No upcoming experiences scheduled at the moment.
+            </p>
+            <p class="text-primary-indigo/60">
+              Check back soon or subscribe to our newsletter to be notified when new experiences are announced.
+            </p>
+          </div>
+        )}
+      </>
+    )}
+
+    {filterStatus === 'past' && (
+      <>
+        {pastEvents.length > 0 ? (
+          <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3 max-w-7xl mx-auto">
+            {pastEvents.map((event) => (
+              <EventCard
+                title={event.data.title}
+                eventDate={event.data.eventDate}
+                eventEndDate={event.data.eventEndDate}
+                location={event.data.location}
+                status={event.data.status}
+                tags={event.data.tags}
+                slug={event.slug}
+                featuredImage={event.data.featuredImage}
+              />
+            ))}
+          </div>
+        ) : (
+          <div class="text-center py-12">
+            <p class="text-lg text-primary-indigo/70">
+              No past experiences yet. Check out our upcoming experiences!
+            </p>
+            <a
+              href="/events?status=upcoming"
+              class="text-primary-cyan hover:text-accent-magenta font-medium mt-4 inline-block"
+            >
+              View upcoming experiences →
+            </a>
+          </div>
+        )}
+      </>
+    )}
+  </div>
+</BaseLayout>

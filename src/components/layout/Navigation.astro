@@ -1,0 +1,87 @@
+---
+import { NAVIGATION_LINKS } from '@lib/constants';
+
+const currentPath = Astro.url.pathname;
+---
+
+<nav class="hidden md:flex items-center space-x-8" aria-label="Main navigation">
+  {NAVIGATION_LINKS.map((link) => (
+    <a
+      href={link.href}
+      class:list={[
+        'text-sm font-medium transition-colors duration-200',
+        currentPath === link.href || (link.href !== '/' && currentPath.startsWith(link.href))
+          ? 'text-primary-cyan'
+          : 'text-primary-indigo hover:text-primary-cyan'
+      ]}
+      aria-current={currentPath === link.href ? 'page' : undefined}
+    >
+      {link.label}
+    </a>
+  ))}
+</nav>
+
+<!-- Mobile menu button -->
+<button
+  id="mobile-menu-button"
+  class="md:hidden p-2 text-primary-indigo hover:text-primary-cyan transition-colors"
+  aria-label="Toggle menu"
+  aria-expanded="false"
+>
+  <svg
+    class="h-6 w-6"
+    fill="none"
+    stroke="currentColor"
+    viewBox="0 0 24 24"
+  >
+    <path
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      stroke-width="2"
+      d="M4 6h16M4 12h16M4 18h16"
+    />
+  </svg>
+</button>
+
+<!-- Mobile menu -->
+<div
+  id="mobile-menu"
+  class="hidden md:hidden absolute top-full left-0 right-0 bg-primary-cream border-b border-primary-indigo/10 shadow-lg"
+>
+  <nav class="container mx-auto px-4 py-4 flex flex-col space-y-4" aria-label="Mobile navigation">
+    {NAVIGATION_LINKS.map((link) => (
+      <a
+        href={link.href}
+        class:list={[
+          'text-base font-medium transition-colors duration-200 py-2',
+          currentPath === link.href || (link.href !== '/' && currentPath.startsWith(link.href))
+            ? 'text-primary-cyan'
+            : 'text-primary-indigo hover:text-primary-cyan'
+        ]}
+        aria-current={currentPath === link.href ? 'page' : undefined}
+      >
+        {link.label}
+      </a>
+    ))}
+  </nav>
+</div>
+
+<script>
+  const mobileMenuButton = document.getElementById('mobile-menu-button');
+  const mobileMenu = document.getElementById('mobile-menu');
+
+  mobileMenuButton?.addEventListener('click', () => {
+    const isExpanded = mobileMenuButton.getAttribute('aria-expanded') === 'true';
+    mobileMenuButton.setAttribute('aria-expanded', String(!isExpanded));
+    mobileMenu?.classList.toggle('hidden');
+  });
+
+  // Close mobile menu when clicking outside
+  document.addEventListener('click', (event) => {
+    if (!mobileMenuButton?.contains(event.target as Node) &&
+        !mobileMenu?.contains(event.target as Node)) {
+      mobileMenu?.classList.add('hidden');
+      mobileMenuButton?.setAttribute('aria-expanded', 'false');
+    }
+  });
+</script>

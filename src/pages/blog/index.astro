@@ -1,0 +1,98 @@
+---
+import BaseLayout from '@layouts/BaseLayout.astro';
+import BlogCard from '@components/blog/BlogCard.astro';
+import { getCollection } from 'astro:content';
+import { sortByDate } from '@lib/utils';
+
+// Get all published blog posts
+const allPosts = await getCollection('blog', ({ data }) => !data.draft);
+const sortedPosts = sortByDate(allPosts);
+
+// Get unique tags
+const allTags = [...new Set(allPosts.flatMap(post => post.data.tags))].sort();
+
+// Get filter from URL
+const { searchParams } = Astro.url;
+const filterTag = searchParams.get('tag');
+
+// Filter posts by tag if specified
+const filteredPosts = filterTag
+  ? sortedPosts.filter(post => post.data.tags.includes(filterTag))
+  : sortedPosts;
+---
+
+<BaseLayout
+  title="Blog"
+  description="Insights, updates, and deep dives into self-custodial AI and intelligence freedom"
+>
+  <div class="container mx-auto px-4 py-16">
+    <header class="mb-12 text-center">
+      <h1 class="text-4xl md:text-5xl font-bold text-primary-indigo mb-4">
+        Blog
+      </h1>
+      <p class="text-lg text-primary-indigo/70 max-w-2xl mx-auto">
+        Insights, updates, and deep dives into self-custodial AI and intelligence freedom
+      </p>
+    </header>
+
+    {/* Tag filter */}
+    {allTags.length > 0 && (
+      <div class="mb-12">
+        <div class="flex flex-wrap gap-3 justify-center">
+          <a
+            href="/blog"
+            class:list={[
+              'px-4 py-2 rounded-full text-sm font-medium transition-colors',
+              !filterTag
+                ? 'bg-primary-cyan text-white'
+                : 'bg-white text-primary-indigo border border-primary-indigo/20 hover:border-primary-cyan'
+            ]}
+          >
+            All Posts
+          </a>
+          {allTags.map((tag) => (
+            <a
+              href={`/blog?tag=${encodeURIComponent(tag)}`}
+              class:list={[
+                'px-4 py-2 rounded-full text-sm font-medium transition-colors',
+                filterTag === tag
+                  ? 'bg-primary-cyan text-white'
+                  : 'bg-white text-primary-indigo border border-primary-indigo/20 hover:border-primary-cyan'
+              ]}
+            >
+              {tag}
+            </a>
+          ))}
+        </div>
+      </div>
+    )}
+
+    {/* Blog posts grid */}
+    {filteredPosts.length > 0 ? (
+      <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3 max-w-7xl mx-auto">
+        {filteredPosts.map((post) => (
+          <BlogCard
+            title={post.data.title}
+            description={post.data.description}
+            pubDate={post.data.pubDate}
+            author={post.data.author}
+            tags={post.data.tags}
+            slug={post.slug}
+            featuredImage={post.data.featuredImage}
+          />
+        ))}
+      </div>
+    ) : (
+      <div class="text-center py-12">
+        <p class="text-lg text-primary-indigo/70">
+          No posts found{filterTag ? ` for tag "${filterTag}"` : ''}.
+        </p>
+        {filterTag && (
+          <a href="/blog" class="text-primary-cyan hover:text-accent-magenta font-medium mt-4 inline-block">
+            View all posts →
+          </a>
+        )}
+      </div>
+    )}
+  </div>
+</BaseLayout>

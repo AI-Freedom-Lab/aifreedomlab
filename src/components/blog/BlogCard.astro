@@ -1,0 +1,54 @@
+---
+import Card from '@components/ui/Card.astro';
+import { formatDate } from '@lib/utils';
+
+export interface Props {
+  title: string;
+  description: string;
+  pubDate: Date;
+  author: string;
+  tags: string[];
+  slug: string;
+  featuredImage?: string;
+}
+
+const { title, description, pubDate, author, tags, slug, featuredImage } = Astro.props;
+---
+
+<Card hover={true}>
+  <a href={`/blog/${slug}`} class="block group">
+    {featuredImage && (
+      <div class="aspect-video overflow-hidden">
+        <img
+          src={featuredImage}
+          alt={title}
+          class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+        />
+      </div>
+    )}
+    <div class="p-6">
+      {tags.length > 0 && (
+        <div class="flex flex-wrap gap-2 mb-3">
+          {tags.slice(0, 3).map((tag) => (
+            <span class="inline-block bg-primary-cyan/10 text-primary-cyan px-2 py-1 rounded text-xs font-medium">
+              {tag}
+            </span>
+          ))}
+        </div>
+      )}
+      <h3 class="text-xl font-bold text-primary-indigo mb-2 group-hover:text-primary-cyan transition-colors">
+        {title}
+      </h3>
+      <p class="text-primary-indigo/70 mb-4 line-clamp-2">
+        {description}
+      </p>
+      <div class="flex items-center gap-3 text-sm text-primary-indigo/60">
+        <span>{author}</span>
+        <span>•</span>
+        <time datetime={pubDate.toISOString()}>
+          {formatDate(pubDate)}
+        </time>
+      </div>
+    </div>
+  </a>
+</Card>
