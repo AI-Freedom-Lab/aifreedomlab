@@ -3,11 +3,11 @@
 ---
 
 <div class="luma-calendar-container">
-  <div class="bg-white rounded-lg shadow-md p-6 md:p-8">
-    <h3 class="text-2xl font-bold text-primary-indigo mb-4">
+  <div class="bg-white rounded-lg shadow-md p-4">
+    <h3 class="text-xl font-bold text-primary-indigo mb-2">
       Upcoming Experiences
     </h3>
-    <p class="text-primary-indigo/70 mb-6">
+    <p class="text-sm text-primary-indigo/70 mb-4">
       Join us for upcoming hackathons, workshops, and community gatherings.
     </p>
 
@@ -20,17 +20,17 @@
       if (typeof window !== 'undefined' && window.LumaCheckoutButton) {
         const container = document.getElementById('luma-embed');
         if (container) {
-          container.innerHTML = '<iframe src="https://lu.ma/embed/user/aifreedomlab" width="100%" height="600" frameborder="0" style="border: 1px solid #e5e7eb; border-radius: 8px;" allowfullscreen></iframe>';
+          container.innerHTML = '<iframe src="https://lu.ma/embed/user/aifreedomlab" width="100%" height="400" frameborder="0" style="border: 1px solid #e5e7eb; border-radius: 8px;" allowfullscreen></iframe>';
         }
       }
     </script>
 
-    <div class="mt-6 text-center">
+    <div class="mt-4 text-center">
       <a
         href="https://lu.ma/user/aifreedomlab"
         target="_blank"
         rel="noopener noreferrer"
-        class="inline-flex items-center gap-2 text-primary-cyan hover:text-accent-magenta transition-colors font-medium"
+        class="inline-flex items-center gap-2 text-sm text-primary-cyan hover:text-accent-magenta transition-colors font-medium"
       >
         View all events on Luma
         <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -45,13 +45,16 @@
   .luma-embed-wrapper {
     position: relative;
     width: 100%;
-    min-height: 600px;
+    min-height: 400px;
   }
 
   /* Make iframe responsive */
   @media (max-width: 768px) {
+    .luma-embed-wrapper {
+      min-height: 350px;
+    }
     .luma-embed-wrapper iframe {
-      height: 500px;
+      height: 350px !important;
     }
   }
 </style>
