@@ -11,7 +11,7 @@ export const NAVIGATION_LINKS = [
 
 export const SOCIAL_LINKS = {
   twitter: 'https://twitter.com/aifreedomlab_',
-  github: 'https://github.com/jacklesser3/aifreedomlab',
+  github: 'https://github.com/AI-Freedom-Lab/aifreedomlab',
   linkedin: 'https://www.linkedin.com/company/bitcoinpark/',
   nostr: 'https://primal.net/park',
   youtube: 'https://www.youtube.com/@BitcoinPark1',
