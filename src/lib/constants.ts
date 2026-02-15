@@ -6,7 +6,7 @@ export const NAVIGATION_LINKS = [
   { href: '/', label: 'Home' },
   // { href: '/about', label: 'About' }, // Hidden for Coming Soon
   { href: '/events', label: 'Experiences' },
-  { href: 'https://bitcoinpark.com/email', label: 'OP_Daily' },
+  { href: 'https://bitcoinpark.com/email', label: 'OP_DAILY' },
 ];
 
 export const SOCIAL_LINKS = {
