@@ -4,6 +4,8 @@ export interface Props {
   variant?: 'primary' | 'secondary' | 'outline';
   size?: 'sm' | 'md' | 'lg';
   class?: string;
+  target?: string;
+  rel?: string;
 }
 
 const {
@@ -11,6 +13,8 @@ const {
   variant = 'primary',
   size = 'md',
   class: className = '',
+  target,
+  rel,
 } = Astro.props;
 
 const baseStyles = 'inline-flex items-center justify-center font-semibold transition-colors duration-200 rounded-lg';
@@ -32,6 +36,6 @@ const classes = `${baseStyles} ${variantStyles[variant]} ${sizeStyles[size]} ${c
 const Element = href ? 'a' : 'button';
 ---
 
-<Element href={href} class={classes}>
+<Element href={href} class={classes} target={target} rel={rel}>
   <slot />
 </Element>
