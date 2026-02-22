@@ -27,10 +27,10 @@ const filteredPosts = filterTag
 >
   <div class="container mx-auto px-4 py-16">
     <header class="mb-12 text-center">
-      <h1 class="text-4xl md:text-5xl font-bold text-primary-indigo mb-4">
+      <h1 class="text-4xl md:text-5xl font-bold text-primary-black mb-4">
         Blog
       </h1>
-      <p class="text-lg text-primary-indigo/70 max-w-2xl mx-auto">
+      <p class="text-lg text-primary-black/70 max-w-2xl mx-auto">
         Insights, updates, and deep dives into self-custodial AI and intelligence freedom
       </p>
     </header>
@@ -45,7 +45,7 @@ const filteredPosts = filterTag
               'px-4 py-2 rounded-full text-sm font-medium transition-colors',
               !filterTag
                 ? 'bg-primary-cyan text-white'
-                : 'bg-white text-primary-indigo border border-primary-indigo/20 hover:border-primary-cyan'
+                : 'bg-white text-primary-black border border-primary-black/20 hover:border-primary-cyan'
             ]}
           >
             All Posts
@@ -57,7 +57,7 @@ const filteredPosts = filterTag
                 'px-4 py-2 rounded-full text-sm font-medium transition-colors',
                 filterTag === tag
                   ? 'bg-primary-cyan text-white'
-                  : 'bg-white text-primary-indigo border border-primary-indigo/20 hover:border-primary-cyan'
+                  : 'bg-white text-primary-black border border-primary-black/20 hover:border-primary-cyan'
               ]}
             >
               {tag}
@@ -84,11 +84,11 @@ const filteredPosts = filterTag
       </div>
     ) : (
       <div class="text-center py-12">
-        <p class="text-lg text-primary-indigo/70">
+        <p class="text-lg text-primary-black/70">
           No posts found{filterTag ? ` for tag "${filterTag}"` : ''}.
         </p>
         {filterTag && (
-          <a href="/blog" class="text-primary-cyan hover:text-accent-magenta font-medium mt-4 inline-block">
+          <a href="/blog" class="text-primary-cyan hover:text-accent-orange font-medium mt-4 inline-block">
             View all posts →
           </a>
         )}

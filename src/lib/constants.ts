@@ -3,10 +3,10 @@ export const SITE_DESCRIPTION = 'Build on your own terms. Self-custodial AI for 
 export const SITE_URL = 'https://aifreedomlab.org';
 
 export const NAVIGATION_LINKS = [
-  { href: '/', label: 'Home' },
-  // { href: '/about', label: 'About' }, // Hidden for Coming Soon
-  { href: '/events', label: 'Experiences' },
-  { href: 'https://bitcoinpark.com/email', label: 'OP_DAILY' },
+  { href: '/', label: 'Home', external: false },
+  // { href: '/about', label: 'About', external: false }, // Hidden for Coming Soon
+  { href: '/events', label: 'Experiences', external: false },
+  { href: 'https://bitcoinpark.com/email', label: 'OP_DAILY', external: true },
 ];
 
 export const SOCIAL_LINKS = {

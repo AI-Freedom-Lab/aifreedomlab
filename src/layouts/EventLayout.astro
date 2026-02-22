@@ -37,19 +37,19 @@ const {
           class:list={[
             'inline-block px-3 py-1 rounded-full text-sm font-medium',
             status === 'upcoming'
-              ? 'bg-accent-gold/10 text-accent-gold'
-              : 'bg-primary-indigo/10 text-primary-indigo'
+              ? 'bg-accent-orange/10 text-accent-orange'
+              : 'bg-primary-black/10 text-primary-black'
           ]}
         >
           {status === 'upcoming' ? 'Upcoming Experience' : 'Past Experience'}
         </span>
       </div>
 
-      <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-primary-indigo mb-6">
+      <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-primary-black mb-6">
         {title}
       </h1>
 
-      <div class="flex flex-wrap gap-6 text-sm text-primary-indigo/70 mb-6">
+      <div class="flex flex-wrap gap-6 text-sm text-primary-black/70 mb-6">
         <div class="flex items-center gap-2">
           <svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
@@ -90,7 +90,7 @@ const {
           href={registrationUrl}
           target="_blank"
           rel="noopener noreferrer"
-          class="inline-block bg-primary-cyan text-white px-8 py-3 rounded-lg font-semibold hover:bg-accent-magenta transition-colors"
+          class="inline-block bg-primary-cyan text-white px-8 py-3 rounded-lg font-semibold hover:bg-accent-orange transition-colors"
         >
           Register Now
         </a>
@@ -113,7 +113,7 @@ const {
 
     {speakers && speakers.length > 0 && (
       <section class="mb-12">
-        <h2 class="text-2xl font-bold text-primary-indigo mb-6">Speakers</h2>
+        <h2 class="text-2xl font-bold text-primary-black mb-6">Speakers</h2>
         <div class="grid gap-6 md:grid-cols-2">
           {speakers.map((speaker) => (
             <div class="flex gap-4">
@@ -125,8 +125,8 @@ const {
                 />
               )}
               <div>
-                <h3 class="font-semibold text-primary-indigo">{speaker.name}</h3>
-                <p class="text-sm text-primary-indigo/70 mt-1">{speaker.bio}</p>
+                <h3 class="font-semibold text-primary-black">{speaker.name}</h3>
+                <p class="text-sm text-primary-black/70 mt-1">{speaker.bio}</p>
               </div>
             </div>
           ))}
@@ -134,10 +134,10 @@ const {
       </section>
     )}
 
-    <footer class="mt-12 pt-8 border-t border-primary-indigo/10">
+    <footer class="mt-12 pt-8 border-t border-primary-black/10">
       <a
         href="/events"
-        class="text-sm font-medium text-primary-cyan hover:text-accent-magenta transition-colors"
+        class="text-sm font-medium text-primary-cyan hover:text-accent-orange transition-colors"
       >
         ← Back to Experiences
       </a>

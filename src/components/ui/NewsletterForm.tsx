@@ -34,10 +34,10 @@ export default function NewsletterForm() {
 
   return (
     <div className="bg-white rounded-lg shadow-md p-6 md:p-8">
-      <h3 className="text-2xl font-bold text-primary-indigo mb-2">
+      <h3 className="text-2xl font-bold text-primary-black mb-2">
         Stay Updated
       </h3>
-      <p className="text-primary-indigo/70 mb-6">
+      <p className="text-primary-black/70 mb-6">
         Get the latest on events, resources, and the movement for intelligence freedom.
       </p>
 
@@ -54,14 +54,14 @@ export default function NewsletterForm() {
             placeholder="your@email.com"
             required
             disabled={status === 'loading' || status === 'success'}
-            className="w-full px-4 py-3 border border-primary-indigo/20 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-cyan focus:border-transparent disabled:opacity-50 disabled:cursor-not-allowed"
+            className="w-full px-4 py-3 border border-primary-black/20 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-cyan focus:border-transparent disabled:opacity-50 disabled:cursor-not-allowed"
           />
         </div>
 
         <button
           type="submit"
           disabled={status === 'loading' || status === 'success'}
-          className="w-full bg-primary-cyan text-white px-6 py-3 rounded-lg font-semibold hover:bg-accent-magenta transition-colors duration-200 disabled:opacity-50 disabled:cursor-not-allowed"
+          className="w-full bg-primary-cyan text-white px-6 py-3 rounded-lg font-semibold hover:bg-accent-orange transition-colors duration-200 disabled:opacity-50 disabled:cursor-not-allowed"
         >
           {status === 'loading' ? 'Subscribing...' : status === 'success' ? 'Subscribed!' : 'Subscribe'}
         </button>
@@ -77,7 +77,7 @@ export default function NewsletterForm() {
         )}
       </form>
 
-      <p className="text-xs text-primary-indigo/60 mt-4">
+      <p className="text-xs text-primary-black/60 mt-4">
         We respect your privacy. Unsubscribe at any time.
       </p>
     </div>

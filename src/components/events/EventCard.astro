@@ -33,17 +33,17 @@ const { title, eventDate, eventEndDate, location, status, tags, slug, featuredIm
           class:list={[
             'inline-block px-3 py-1 rounded-full text-xs font-medium',
             status === 'upcoming'
-              ? 'bg-accent-gold/10 text-accent-gold'
-              : 'bg-primary-indigo/10 text-primary-indigo'
+              ? 'bg-accent-orange/10 text-accent-orange'
+              : 'bg-primary-black/10 text-primary-black'
           ]}
         >
           {status === 'upcoming' ? 'Upcoming' : 'Past Experience'}
         </span>
       </div>
-      <h3 class="text-xl font-bold text-primary-indigo mb-3 group-hover:text-primary-cyan transition-colors">
+      <h3 class="text-xl font-bold text-primary-black mb-3 group-hover:text-primary-cyan transition-colors">
         {title}
       </h3>
-      <div class="space-y-2 text-sm text-primary-indigo/70 mb-4">
+      <div class="space-y-2 text-sm text-primary-black/70 mb-4">
         <div class="flex items-center gap-2">
           <svg class="h-4 w-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />

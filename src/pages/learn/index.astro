@@ -120,8 +120,8 @@ const resourceCategories = [
 >
   <div class="prose prose-lg max-w-none">
     <section class="mb-16">
-      <h2 class="text-3xl font-bold text-primary-indigo mb-6">Learning Resources</h2>
-      <p class="text-lg text-primary-indigo/80 mb-8">
+      <h2 class="text-3xl font-bold text-primary-black mb-6">Learning Resources</h2>
+      <p class="text-lg text-primary-black/80 mb-8">
         Whether you're just getting started with self-custodial AI or you're an experienced builder,
         these resources will help you on your journey to intelligence freedom.
       </p>
@@ -134,8 +134,8 @@ const resourceCategories = [
           <div class="flex items-start gap-4 mb-4">
             <span class="text-4xl">{category.icon}</span>
             <div>
-              <h3 class="text-2xl font-bold text-primary-indigo mb-2">{category.title}</h3>
-              <p class="text-primary-indigo/70">{category.description}</p>
+              <h3 class="text-2xl font-bold text-primary-black mb-2">{category.title}</h3>
+              <p class="text-primary-black/70">{category.description}</p>
             </div>
           </div>
           <ul class="space-y-3">
@@ -147,7 +147,7 @@ const resourceCategories = [
                   rel={resource.external ? 'noopener noreferrer' : undefined}
                   class="block p-3 rounded-lg hover:bg-primary-cyan/5 transition-colors group"
                 >
-                  <div class="font-semibold text-primary-indigo group-hover:text-primary-cyan transition-colors">
+                  <div class="font-semibold text-primary-black group-hover:text-primary-cyan transition-colors">
                     {resource.title}
                     {resource.external && (
                       <svg class="inline h-4 w-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -155,7 +155,7 @@ const resourceCategories = [
                       </svg>
                     )}
                   </div>
-                  <div class="text-sm text-primary-indigo/60 mt-1">
+                  <div class="text-sm text-primary-black/60 mt-1">
                     {resource.description}
                   </div>
                 </a>
@@ -167,14 +167,14 @@ const resourceCategories = [
     </div>
 
     {/* Getting Started Guide */}
-    <section id="what-is-self-custodial-ai" class="mb-12 bg-gradient-to-br from-primary-cyan/10 to-accent-magenta/10 p-8 rounded-lg">
-      <h2 class="text-3xl font-bold text-primary-indigo mb-6">What is Self-Custodial AI?</h2>
+    <section id="what-is-self-custodial-ai" class="mb-12 bg-gradient-to-br from-primary-cyan/10 to-accent-orange/10 p-8 rounded-lg">
+      <h2 class="text-3xl font-bold text-primary-black mb-6">What is Self-Custodial AI?</h2>
       <p class="mb-4">
         Self-custodial AI means running artificial intelligence models on your own hardware, with your own
         data, under your complete control. Instead of sending your questions, documents, and creative work
         to a centralized service, you keep everything local.
       </p>
-      <h3 class="text-xl font-bold text-primary-indigo mt-6 mb-3">Why it matters:</h3>
+      <h3 class="text-xl font-bold text-primary-black mt-6 mb-3">Why it matters:</h3>
       <ul class="space-y-2">
         <li><strong>Privacy:</strong> Your data never leaves your device</li>
         <li><strong>Control:</strong> You choose which models to run and how to use them</li>
@@ -184,12 +184,12 @@ const resourceCategories = [
     </section>
 
     <section id="first-local-model" class="mb-12">
-      <h2 class="text-3xl font-bold text-primary-indigo mb-6">Your First Local Model</h2>
+      <h2 class="text-3xl font-bold text-primary-black mb-6">Your First Local Model</h2>
       <p class="mb-4">
         The easiest way to get started is with <a href="https://ollama.ai" target="_blank" rel="noopener noreferrer">Ollama</a>,
         a tool that makes running large language models as simple as running a Docker container.
       </p>
-      <h3 class="text-xl font-bold text-primary-indigo mt-6 mb-3">Quick Start:</h3>
+      <h3 class="text-xl font-bold text-primary-black mt-6 mb-3">Quick Start:</h3>
       <ol class="space-y-3">
         <li><strong>Install Ollama:</strong> Download from ollama.ai and follow the installation instructions</li>
         <li><strong>Download a model:</strong> Run <code>ollama pull llama2</code> to download Meta's LLaMA 2 model</li>
@@ -201,13 +201,13 @@ const resourceCategories = [
     </section>
 
     <section id="hardware-requirements" class="mb-12">
-      <h2 class="text-3xl font-bold text-primary-indigo mb-6">Hardware Requirements</h2>
+      <h2 class="text-3xl font-bold text-primary-black mb-6">Hardware Requirements</h2>
       <p class="mb-4">
         The hardware you need depends on which models you want to run:
       </p>
       <div class="grid md:grid-cols-3 gap-6 my-8">
         <div class="bg-white p-6 rounded-lg shadow-md">
-          <h4 class="text-lg font-bold text-primary-indigo mb-3">Entry Level</h4>
+          <h4 class="text-lg font-bold text-primary-black mb-3">Entry Level</h4>
           <ul class="text-sm space-y-2">
             <li>• 8GB RAM minimum</li>
             <li>• Modern CPU (4+ cores)</li>
@@ -225,7 +225,7 @@ const resourceCategories = [
           </ul>
         </div>
         <div class="bg-white p-6 rounded-lg shadow-md">
-          <h4 class="text-lg font-bold text-primary-indigo mb-3">Advanced</h4>
+          <h4 class="text-lg font-bold text-primary-black mb-3">Advanced</h4>
           <ul class="text-sm space-y-2">
             <li>• 32GB+ RAM</li>
             <li>• High-end GPU (16GB+ VRAM)</li>
@@ -237,7 +237,7 @@ const resourceCategories = [
     </section>
 
     {/* Community CTA */}
-    <section class="bg-gradient-to-br from-primary-indigo to-accent-magenta text-white p-8 rounded-lg text-center">
+    <section class="bg-gradient-to-br from-primary-black to-accent-orange text-white p-8 rounded-lg text-center">
       <h2 class="text-3xl font-bold mb-4">Have Questions?</h2>
       <p class="text-lg text-white/90 mb-6">
         Attend our experiences to learn from others and get hands-on help with self-custodial AI.
@@ -246,7 +246,7 @@ const resourceCategories = [
         <Button href="/events" variant="primary" size="lg">
           View Experiences
         </Button>
-        <Button href="/contact" variant="outline" size="lg" class="!text-white !border-white hover:!bg-white hover:!text-primary-indigo">
+        <Button href="/contact" variant="outline" size="lg" class="!text-white !border-white hover:!bg-white hover:!text-primary-black">
           Contact Us
         </Button>
       </div>
