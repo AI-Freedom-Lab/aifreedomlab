@@ -1,14 +1,12 @@
 :root {
-  /* Brand Colors */
-  --color-primary-cyan: #00D9FF;
-  --color-primary-indigo: #1A2F5A;
-  --color-primary-cream: #F8F6F1;
-
-  --color-accent-gold: #FFB81C;
-  --color-accent-magenta: #E91E8C;
-  --color-accent-copper: #B87333;
+  /* Brand Colors — AI Freedom Lab Brand Book */
+  --color-primary-cyan: #00E5FF;   /* Electric Cyan: signal, energy, the spark */
+  --color-primary-black: #171c1e;  /* Deep Black: foundation, the void */
+  --color-primary-cream: #f7f5f0;  /* Warm White: canvas, breathing room */
+  --color-accent-orange: #ff9974;  /* Park Orange: warmth, play, symbiosis */
 
   /* Typography */
+  --font-display: 'Hanken Grotesk', system-ui, -apple-system, sans-serif;
   --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
   --font-mono: 'Space Mono', 'Menlo', 'Monaco', monospace;
 

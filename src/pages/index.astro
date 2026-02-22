@@ -16,26 +16,27 @@ const upcomingEvents = sortByDate(allEvents).slice(0, 3);
 ---
 
 <BaseLayout>
-  <!-- Hero Section with Unlock Animation Placeholder -->
-  <section class="relative bg-gradient-to-br from-primary-indigo via-primary-indigo to-accent-magenta text-white overflow-hidden">
-    <div class="absolute inset-0 opacity-10">
-      <div class="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,_rgba(0,217,255,0.3),transparent_50%)]"></div>
+  <!-- Hero Section -->
+  <section class="relative bg-primary-black text-white overflow-hidden">
+    <!-- Cyan radial glow — brand energy -->
+    <div class="absolute inset-0 pointer-events-none">
+      <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_50%_0%,_rgba(0,229,255,0.12),transparent_60%)]"></div>
     </div>
 
-    <div class="container mx-auto px-4 py-24 md:py-32 relative z-10">
-      <div class="max-w-4xl mx-auto text-center">
-        <p class="text-5xl md:text-6xl lg:text-7xl font-bold mb-4 tracking-tight whitespace-nowrap">
+    <div class="container mx-auto px-4 py-24 md:py-36 relative z-10">
+      <div class="max-w-5xl mx-auto text-center">
+        <p class="font-display text-5xl md:text-6xl lg:text-7xl font-black mb-3 tracking-tight whitespace-nowrap text-white">
           Build on your own terms.
         </p>
-        <h1 class="text-5xl md:text-6xl lg:text-7xl font-bold mb-8 tracking-tight whitespace-nowrap">
+        <h1 class="font-display text-5xl md:text-6xl lg:text-7xl font-black mb-10 tracking-tight whitespace-nowrap text-primary-cyan">
           Coming Soon
         </h1>
-        <div class="flex flex-col sm:flex-row gap-4 justify-center mb-8">
+        <div class="flex flex-col sm:flex-row gap-4 justify-center mb-10">
           <Button href="https://luma.com/user/aifreedomlab" variant="primary" size="lg" target="_blank" rel="noopener noreferrer">
             Attend an Experience
           </Button>
         </div>
-        <p class="text-base md:text-lg text-white/90 max-w-3xl mx-auto">
+        <p class="font-sans text-base md:text-lg text-white/70 max-w-2xl mx-auto">
           Curious about AI? There's a place for you in the AI Freedom Lab community.
         </p>
       </div>
@@ -46,13 +47,13 @@ const upcomingEvents = sortByDate(allEvents).slice(0, 3);
   <!-- <section class="py-16 md:py-24 bg-primary-cream">
     <div class="container mx-auto px-4">
       <div class="max-w-3xl mx-auto text-center">
-        <h2 class="text-3xl md:text-4xl font-bold text-primary-indigo mb-6">
+        <h2 class="text-3xl md:text-4xl font-bold text-primary-black mb-6">
           Why Intelligent Freedom Matters
         </h2>
-        <p class="text-lg text-primary-indigo/80 mb-6 leading-relaxed">
+        <p class="text-lg text-primary-black/80 mb-6 leading-relaxed">
           AI creates amazing opportunities, vulnerabilities, and potential power imbalances.
         </p>
-        <p class="text-lg text-primary-indigo/80 leading-relaxed">
+        <p class="text-lg text-primary-black/80 leading-relaxed">
           We're building a future where individuals can think for themselves.
         </p>
       </div>
@@ -64,7 +65,7 @@ const upcomingEvents = sortByDate(allEvents).slice(0, 3);
     <section class="py-16 md:py-24">
       <div class="container mx-auto px-4">
         <div class="flex items-center justify-between mb-12">
-          <h2 class="text-3xl md:text-4xl font-bold text-primary-indigo">
+          <h2 class="text-3xl md:text-4xl font-bold text-primary-black">
             Upcoming Experiences
           </h2>
           <Button href="/events" variant="outline" size="sm">
@@ -94,7 +95,7 @@ const upcomingEvents = sortByDate(allEvents).slice(0, 3);
     <section class="py-16 md:py-24 bg-primary-cream">
       <div class="container mx-auto px-4">
         <div class="flex items-center justify-between mb-12">
-          <h2 class="text-3xl md:text-4xl font-bold text-primary-indigo">
+          <h2 class="text-3xl md:text-4xl font-bold text-primary-black">
             Latest from the Blog
           </h2>
           <Button href="/blog" variant="outline" size="sm">

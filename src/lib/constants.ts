@@ -1,5 +1,5 @@
 export const SITE_TITLE = 'AI Freedom Lab';
-export const SITE_DESCRIPTION = 'Building the future of intelligence freedom through self-custodial AI';
+export const SITE_DESCRIPTION = 'Build on your own terms. Self-custodial AI for everyone.';
 export const SITE_URL = 'https://aifreedomlab.org';
 
 export const NAVIGATION_LINKS = [

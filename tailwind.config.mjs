@@ -5,18 +5,17 @@ export default {
     extend: {
       colors: {
         primary: {
-          cyan: '#00D9FF',
-          indigo: '#1A2F5A',
-          cream: '#F8F6F1',
+          cyan: '#00E5FF',
+          black: '#171c1e',
+          cream: '#f7f5f0',
         },
         accent: {
-          gold: '#FFB81C',
-          magenta: '#E91E8C',
-          copper: '#B87333',
+          orange: '#ff9974',
         },
       },
       fontFamily: {
         sans: ['Inter', 'system-ui', '-apple-system', 'sans-serif'],
+        display: ['Hanken Grotesk', 'system-ui', '-apple-system', 'sans-serif'],
         mono: ['Space Mono', 'Menlo', 'Monaco', 'monospace'],
       },
       animation: {
