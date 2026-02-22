@@ -34,7 +34,7 @@
   }
 
   a {
-    @apply text-primary-cyan hover:text-accent-orange transition-colors duration-200;
+    @apply transition-colors duration-200;
   }
 
   /* Focus styles for accessibility */
