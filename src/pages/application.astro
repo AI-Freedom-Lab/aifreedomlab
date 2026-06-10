@@ -1,0 +1,238 @@
+---
+import BaseLayout from '@layouts/BaseLayout.astro';
+import Button from '@components/ui/Button.astro';
+import Card from '@components/ui/Card.astro';
+
+const FORM_EMBED_URL =
+  'https://docs.google.com/forms/d/e/1FAIpQLSctpf2mArnhbiw7g93-0hDTGkWov6ffpu3WxrMAt262J3eXRg/viewform?embedded=true';
+const FORM_URL =
+  'https://docs.google.com/forms/d/e/1FAIpQLSctpf2mArnhbiw7g93-0hDTGkWov6ffpu3WxrMAt262J3eXRg/viewform';
+
+const rubric = [
+  {
+    name: 'Problem and mission fit',
+    points: 25,
+    detail:
+      'Does this advance intelligence freedom and human rights? Who is affected, and how directly does the work reach them?',
+  },
+  {
+    name: 'Solution and technical merit',
+    points: 20,
+    detail: 'Is the approach sound, creative, and actually buildable by this team?',
+  },
+  {
+    name: 'Traction and momentum',
+    points: 15,
+    detail: 'What already exists? Hackathon results, working demos, and early users all count.',
+  },
+  {
+    name: 'Plan and milestones',
+    points: 15,
+    detail: 'Concrete milestones with dates, a realistic timeline, and a clear definition of done.',
+  },
+  {
+    name: 'Team',
+    points: 10,
+    detail: 'The right people, with domain expertise or lived experience of the problem.',
+  },
+  {
+    name: 'Budget justification',
+    points: 10,
+    detail: 'A breakdown that matches the scope. We fund work, not padding.',
+  },
+  {
+    name: 'Sustainability',
+    points: 5,
+    detail: 'A credible answer to what happens after our support ends.',
+  },
+];
+
+const steps = [
+  {
+    title: 'Apply',
+    detail:
+      'The application below takes 30 to 45 minutes if you know your project. Every question maps to the rubric.',
+  },
+  {
+    title: 'Review',
+    detail:
+      'We score every application against the rubric and typically respond within two weeks. No black box, no silence.',
+  },
+  {
+    title: 'Agree on milestones',
+    detail:
+      'Funded projects get a simple grant letter: the amount, the milestones, and the dates we agreed on.',
+  },
+  {
+    title: 'Build',
+    detail:
+      'You ship, we check in at each milestone, and the AI Freedom Lab community is behind you the whole way.',
+  },
+];
+---
+
+<BaseLayout
+  title="Continued Support Application"
+  description="AI Hack for Freedom alumni can apply for grants of $5,000 to $25,000 to keep building tools for intelligence freedom and human rights."
+>
+  <!-- Hero -->
+  <section class="relative bg-primary-black text-white overflow-hidden">
+    <div class="absolute inset-0 pointer-events-none">
+      <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_50%_0%,_rgba(0,229,255,0.12),transparent_60%)]"></div>
+    </div>
+    <div class="container mx-auto px-4 py-24 md:py-32 relative z-10">
+      <div class="max-w-4xl mx-auto text-center">
+        <p class="font-mono text-sm uppercase tracking-widest text-primary-cyan mb-6">
+          Continued Support
+        </p>
+        <h1 class="font-display text-4xl md:text-6xl font-black mb-3 tracking-tight text-white">
+          The hackathon was the start.
+        </h1>
+        <p class="font-display text-4xl md:text-6xl font-black mb-10 tracking-tight text-primary-cyan">
+          Keep building.
+        </p>
+        <p class="font-sans text-base md:text-lg text-white/70 max-w-2xl mx-auto mb-10">
+          AI Hack for Freedom alumni can apply for grants of $5,000 to $25,000 to take a project
+          from weekend demo to working tool. Clear milestones, a transparent rubric, and an answer
+          within two weeks.
+        </p>
+        <Button href="#apply" variant="primary" size="lg">Start Your Application</Button>
+      </div>
+    </div>
+  </section>
+
+  <!-- What we fund -->
+  <section class="py-16 md:py-24 bg-primary-cream">
+    <div class="container mx-auto px-4">
+      <div class="max-w-3xl mx-auto text-center mb-12">
+        <h2 class="font-display text-3xl md:text-4xl font-bold text-primary-black mb-4">
+          What we fund
+        </h2>
+        <p class="text-lg text-primary-black/80">
+          The best projects from AI Hack for Freedom should not end when the demos do. Continued
+          Support exists to keep them shipping.
+        </p>
+      </div>
+      <div class="grid gap-8 md:grid-cols-3 max-w-5xl mx-auto">
+        <Card class="p-8 text-center">
+          <p class="font-display text-3xl font-black text-primary-cyan mb-2">$5K to $25K</p>
+          <h3 class="font-semibold text-primary-black mb-2">Right sized grants</h3>
+          <p class="text-sm text-primary-black/70">
+            Enough to fund focused work: people, compute, and testing. Sized to the scope you
+            propose, not the other way around.
+          </p>
+        </Card>
+        <Card class="p-8 text-center">
+          <p class="font-display text-3xl font-black text-primary-cyan mb-2">3 months</p>
+          <h3 class="font-semibold text-primary-black mb-2">Milestone driven</h3>
+          <p class="text-sm text-primary-black/70">
+            Most grants run three months with 3 to 5 agreed milestones. Constraints are a feature.
+            They keep projects shipping after the hackathon energy fades.
+          </p>
+        </Card>
+        <Card class="p-8 text-center">
+          <p class="font-display text-3xl font-black text-primary-cyan mb-2">Alumni first</p>
+          <h3 class="font-semibold text-primary-black mb-2">For people we have built with</h3>
+          <p class="text-sm text-primary-black/70">
+            Open to participants from AI Hack for Freedom in Austin, Nashville, and Washington DC.
+            Not an alum yet? <a href="/events" class="text-primary-cyan hover:text-accent-orange">Join the next one</a>.
+          </p>
+        </Card>
+      </div>
+    </div>
+  </section>
+
+  <!-- How we decide -->
+  <section class="py-16 md:py-24">
+    <div class="container mx-auto px-4">
+      <div class="max-w-3xl mx-auto text-center mb-12">
+        <h2 class="font-display text-3xl md:text-4xl font-bold text-primary-black mb-4">
+          How we decide
+        </h2>
+        <p class="text-lg text-primary-black/80">
+          Every application is scored out of 100 points on the same rubric. We publish it because
+          you should know exactly what a strong application looks like before you write one.
+        </p>
+      </div>
+      <div class="max-w-3xl mx-auto space-y-4">
+        {rubric.map((r) => (
+          <div class="bg-white rounded-lg shadow-md p-6">
+            <div class="flex items-baseline justify-between gap-4 mb-2">
+              <h3 class="font-semibold text-primary-black">{r.name}</h3>
+              <span class="font-mono text-sm text-primary-cyan whitespace-nowrap">{r.points} pts</span>
+            </div>
+            <div class="h-1.5 bg-primary-black/10 rounded-full mb-3 overflow-hidden">
+              <div class="h-full bg-primary-cyan rounded-full" style={`width: ${r.points * 4}%`}></div>
+            </div>
+            <p class="text-sm text-primary-black/70">{r.detail}</p>
+          </div>
+        ))}
+        <p class="text-sm text-primary-black/60 pt-4 text-center">
+          80 and above is usually a fast yes. 65 to 79 usually means a conversation and a revised
+          plan. Below that, we pass and tell you why.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- How it works -->
+  <section class="py-16 md:py-24 bg-primary-black text-white">
+    <div class="container mx-auto px-4">
+      <div class="max-w-3xl mx-auto text-center mb-12">
+        <h2 class="font-display text-3xl md:text-4xl font-bold mb-4">How it works</h2>
+      </div>
+      <div class="grid gap-8 md:grid-cols-4 max-w-5xl mx-auto">
+        {steps.map((step, i) => (
+          <div>
+            <p class="font-mono text-primary-cyan text-sm mb-3">0{i + 1}</p>
+            <h3 class="font-semibold text-lg mb-2">{step.title}</h3>
+            <p class="text-sm text-white/70">{step.detail}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Application form -->
+  <section id="apply" class="py-16 md:py-24 bg-primary-cream">
+    <div class="container mx-auto px-4">
+      <div class="max-w-3xl mx-auto text-center mb-10">
+        <h2 class="font-display text-3xl md:text-4xl font-bold text-primary-black mb-4">
+          The application
+        </h2>
+        <p class="text-lg text-primary-black/80 mb-2">
+          Be specific. Real numbers, real links, real names. Applications are reviewed on a
+          rolling basis.
+        </p>
+        <p class="text-sm text-primary-black/60">
+          Prefer a full window?
+          <a
+            href={FORM_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="text-primary-cyan hover:text-accent-orange"
+          >Open the application in a new tab</a>.
+        </p>
+      </div>
+      <div class="max-w-3xl mx-auto bg-white rounded-lg shadow-md overflow-hidden">
+        <iframe
+          src={FORM_EMBED_URL}
+          width="100%"
+          height="1100"
+          frameborder="0"
+          marginheight="0"
+          marginwidth="0"
+          title="AI Freedom Lab Continued Support Application"
+          class="block"
+        >
+          Loading…
+        </iframe>
+      </div>
+      <p class="text-center text-sm text-primary-black/60 mt-8 max-w-2xl mx-auto">
+        Questions before you apply? Reach us through the
+        <a href="/contact" class="text-primary-cyan hover:text-accent-orange">contact page</a>
+        and we will get you an answer.
+      </p>
+    </div>
+  </section>
+</BaseLayout>

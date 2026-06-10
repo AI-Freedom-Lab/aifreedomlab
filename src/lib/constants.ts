@@ -6,6 +6,7 @@ export const NAVIGATION_LINKS = [
   { href: '/', label: 'Home', external: false },
   // { href: '/about', label: 'About', external: false }, // Hidden for Coming Soon
   { href: '/events', label: 'Experiences', external: false },
+  { href: '/application', label: 'Apply', external: false },
   { href: 'https://bitcoinpark.com/email', label: 'OP_DAILY', external: true },
 ];
 
