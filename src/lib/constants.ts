@@ -15,7 +15,7 @@ export const SOCIAL_LINKS = {
   github: 'https://github.com/AI-Freedom-Lab/aifreedomlab',
   linkedin: 'https://www.linkedin.com/company/bitcoinpark/',
   nostr: 'https://primal.net/park',
-  youtube: 'https://www.youtube.com/@BitcoinPark1',
+  youtube: 'https://www.youtube.com/@bitcoinpark',
 };
 
 export const BITCOIN_PARK_URL = 'https://bitcoinpark.com';
