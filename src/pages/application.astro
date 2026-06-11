@@ -8,45 +8,6 @@ const FORM_EMBED_URL =
 const FORM_URL =
   'https://docs.google.com/forms/d/e/1FAIpQLSctpf2mArnhbiw7g93-0hDTGkWov6ffpu3WxrMAt262J3eXRg/viewform';
 
-const rubric = [
-  {
-    name: 'Problem and mission fit',
-    points: 25,
-    detail:
-      'Does this advance intelligence freedom and human rights? Who is affected, and how directly does the work reach them?',
-  },
-  {
-    name: 'Solution and technical merit',
-    points: 20,
-    detail: 'Is the approach sound, creative, and actually buildable by this team?',
-  },
-  {
-    name: 'Traction and momentum',
-    points: 15,
-    detail: 'What already exists? Hackathon results, working demos, and early users all count.',
-  },
-  {
-    name: 'Plan and milestones',
-    points: 15,
-    detail: 'Concrete milestones with dates, a realistic timeline, and a clear definition of done.',
-  },
-  {
-    name: 'Team',
-    points: 10,
-    detail: 'The right people, with domain expertise or lived experience of the problem.',
-  },
-  {
-    name: 'Budget justification',
-    points: 10,
-    detail: 'A breakdown that matches the scope. We fund work, not padding.',
-  },
-  {
-    name: 'Sustainability',
-    points: 5,
-    detail: 'A credible answer to what happens after our support ends.',
-  },
-];
-
 const steps = [
   {
     title: 'Apply',
@@ -138,39 +99,6 @@ const steps = [
             Not an alum yet? <a href="/events" class="text-primary-cyan hover:text-accent-orange">Join the next one</a>.
           </p>
         </Card>
-      </div>
-    </div>
-  </section>
-
-  <!-- How we decide -->
-  <section class="py-16 md:py-24">
-    <div class="container mx-auto px-4">
-      <div class="max-w-3xl mx-auto text-center mb-12">
-        <h2 class="font-display text-3xl md:text-4xl font-bold text-primary-black mb-4">
-          How we decide
-        </h2>
-        <p class="text-lg text-primary-black/80">
-          Every application is scored out of 100 points on the same rubric. We publish it because
-          you should know exactly what a strong application looks like before you write one.
-        </p>
-      </div>
-      <div class="max-w-3xl mx-auto space-y-4">
-        {rubric.map((r) => (
-          <div class="bg-white rounded-lg shadow-md p-6">
-            <div class="flex items-baseline justify-between gap-4 mb-2">
-              <h3 class="font-semibold text-primary-black">{r.name}</h3>
-              <span class="font-mono text-sm text-primary-cyan whitespace-nowrap">{r.points} pts</span>
-            </div>
-            <div class="h-1.5 bg-primary-black/10 rounded-full mb-3 overflow-hidden">
-              <div class="h-full bg-primary-cyan rounded-full" style={`width: ${r.points * 4}%`}></div>
-            </div>
-            <p class="text-sm text-primary-black/70">{r.detail}</p>
-          </div>
-        ))}
-        <p class="text-sm text-primary-black/60 pt-4 text-center">
-          80 and above is usually a fast yes. 65 to 79 usually means a conversation and a revised
-          plan. Below that, we pass and tell you why.
-        </p>
       </div>
     </div>
   </section>
